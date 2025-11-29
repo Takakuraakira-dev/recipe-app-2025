@@ -24,8 +24,6 @@ If you are developing a production application, we recommend using TypeScript wi
 
 📸 デモ画像（任意でスクショ貼ると最高）
 
-※ 後で画像追加しましょう！
-
 ✨ 主な機能
 
 🔍 レシピ検索（食材・料理名から検索）
@@ -46,8 +44,6 @@ UI	CSS / Flexbox
 パッケージ管理	npm
 バージョン管理	Git / GitHub
 📦 セットアップ方法（ローカル実行）
-
-※ 採用担当があなたのコードを動かす時に必要！
 
 # リポジトリをクローン
 git clone https://github.com/Takakuraakira-dev/recipe-app-2025.git
