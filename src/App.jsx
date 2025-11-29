@@ -4,10 +4,12 @@ import RecipeDetail from "./RecipeDetail";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/recipe/:id" element={<RecipeDetail />} />
-    </Routes>
+
+     <Routes>
+  <Route path="" element={<Home />} />
+  <Route path="recipe/:id" element={<RecipeDetail />} />
+</Routes>
+
   );
 }
 
