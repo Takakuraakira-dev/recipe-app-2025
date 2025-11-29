@@ -65,3 +65,35 @@ body {
 .app h1::before {
   content: "🔍";
 }
+a {
+  text-decoration: none;
+}
+
+a[href*="thelemonsqueezy"],
+a[href*="ezy.com"] {
+  display: none !important;
+}
+a {
+  text-decoration: none;
+}
+
+a[href*="thelemonsqueezy"],
+a[href*="ezy.com"] {
+  display: none !important;
+}
+a {
+  text-decoration: none;
+}
+
+a[href*="thelemonsqueezy"],
+a[href*="ezy.com"] {
+  display: none !important;
+}
+a {
+  text-decoration: none;
+}
+
+a[href*="thelemonsqueezy"],
+a[href*="ezy.com"] {
+  display: none !important;
+}
