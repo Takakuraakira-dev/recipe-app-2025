@@ -9,4 +9,12 @@
   margin: 20px auto;
   max-width: 500px;
 }
+a {
+  text-decoration: none;
+}
+
+a[href*="thelemonsqueezy"],
+a[href*="ezy.com"] {
+  display: none !important;
+}
 
