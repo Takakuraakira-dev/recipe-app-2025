@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom"; 
 import { useEffect, useState } from "react";
 
 function RecipeDetail() {
@@ -25,20 +25,26 @@ function RecipeDetail() {
   }, [id]);
 
   if (loading) return <p>読み込み中…</p>;
-  if (!recipe) return <p>レシピが見つかりません😢</p>;
+  if (!recipe) return <p>レシピが見つかりませんでした😢</p>;
 
   return (
     <div className="detail-page">
+      
+      {/* レシピ名 */}
       <h1>{recipe.strMeal}</h1>
+
+      {/* サムネイル画像 */}
       <img
         src={recipe.strMealThumb}
         alt={recipe.strMeal}
         style={{ width: "80%", borderRadius: "10px" }}
       />
 
+      {/* 作り方 */}
       <h2>📋 作り方</h2>
       <p>{recipe.strInstructions}</p>
 
+      {/* 材料一覧 */}
       <h2>🍴 材料</h2>
       <ul>
         {Array.from({ length: 20 }).map((_, i) => {
@@ -49,18 +55,20 @@ function RecipeDetail() {
             ingredient &&
             ingredient.trim() && (
               <li key={i}>
-                {ingredient} - {measure}
+                {ingredient}（{measure}）
               </li>
             )
           );
         })}
       </ul>
 
+      {/* 戻るリンク */}
       <Link to="/" style={{ display: "block", marginTop: "20px" }}>
-        ← 戻る
+        ← 検索ページへ戻る
       </Link>
     </div>
   );
 }
 
 export default RecipeDetail;
+

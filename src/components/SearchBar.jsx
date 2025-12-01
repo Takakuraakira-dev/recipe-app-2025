@@ -5,8 +5,10 @@ function SearchBar({ onSearch }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input.trim() === "") return;
-    onSearch(input);
+    const word = input.trim();
+    if (word === "") return;
+
+    onSearch(word); // 🔥 日本語を Home.jsx に渡す（翻訳は Home.jsx 側で行う）
     setInput("");
   };
 
@@ -14,7 +16,7 @@ function SearchBar({ onSearch }) {
     <form onSubmit={handleSubmit} className="search-bar">
       <input
         type="text"
-        placeholder="食材や料理名を入力..."
+        placeholder="食材名・料理名を日本語で入力してください"
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
@@ -24,3 +26,4 @@ function SearchBar({ onSearch }) {
 }
 
 export default SearchBar;
+

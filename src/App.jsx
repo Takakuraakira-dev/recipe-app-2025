@@ -4,12 +4,13 @@ import RecipeDetail from "./RecipeDetail";
 
 function App() {
   return (
+    <Routes>
+      {/* ホーム（検索ページ） */}
+      <Route path="/" element={<Home />} />
 
-     <Routes>
-  <Route path="" element={<Home />} />
-  <Route path="recipe/:id" element={<RecipeDetail />} />
-</Routes>
-
+      {/* レシピ詳細ページ */}
+      <Route path="/recipe/:id" element={<RecipeDetail />} />
+    </Routes>
   );
 }
 
