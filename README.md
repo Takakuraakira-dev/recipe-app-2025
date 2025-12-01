@@ -22,7 +22,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 転職用ポートフォリオとして作成しました。
 
-📸 デモ画像（任意でスクショ貼ると最高）
+📸 デモ画像
 
 ✨ 主な機能
 
