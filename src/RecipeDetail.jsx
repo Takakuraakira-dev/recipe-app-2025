@@ -1,35 +1,27 @@
-//// ★ 料理名（英語 → 日本語）翻訳辞書
-const mealNameJP = {
-  "Mediterranean Pasta Salad": "地中海風パスタサラダ",
-  "Beef and Mustard Pie": "ビーフとマスタードのパイ",
-  "Chicken Handi": "チキンハンディ",
-  "Tuna Nicoise": "ツナニソワーズ",
-  // ここに追加していくことも可能！👍
-};
- src/RecipeDetail.jsx
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-function RecipeDetail() {// ★ 料理名（英語 → 日本語）翻訳辞書
+function RecipeDetail() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const [recipe, setRecipe] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  const [translatedInstructions, setTranslatedInstructions] = useState("");
+  const [isTranslating, setIsTranslating] = useState(false);
+  const [showJapanese, setShowJapanese] = useState(false);
+
+  // ★ 料理名（英語 → 日本語）翻訳辞書
   const mealNameJP = {
     "Mediterranean Pasta Salad": "地中海風パスタサラダ",
     "Beef and Mustard Pie": "ビーフとマスタードのパイ",
     "Chicken Handi": "チキンハンディ",
     "Tuna Nicoise": "ツナニソワーズ",
-    // 他の料理もここに追加できます
   };
-  
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [recipe, setRecipe] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
 
-  // ★ 翻訳用の state
-  const [translatedInstructions, setTranslatedInstructions] = useState("");
-  const [isTranslating, setIsTranslating] = useState(false);
-  const [showJapanese, setShowJapanese] = useState(false);
-
+  // ★ レシピ取得
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
@@ -59,11 +51,10 @@ function RecipeDetail() {// ★ 料理名（英語 → 日本語）翻訳辞書
     fetchRecipe();
   }, [id]);
 
-  // ★ 翻訳ボタンを押したとき
+  // ★ 翻訳のボタン押したとき
   const handleTranslate = async () => {
     if (!recipe?.strInstructions) return;
 
-    // すでに翻訳済みなら「表示切り替え」だけ
     if (translatedInstructions) {
       setShowJapanese(true);
       return;
@@ -75,7 +66,6 @@ function RecipeDetail() {// ★ 料理名（英語 → 日本語）翻訳辞書
 
       const text = recipe.strInstructions;
 
-      // Google翻訳の非公式API（ポートフォリオ用途ならOK）
       const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ja&dt=t&q=${encodeURIComponent(
         text
       )}`;
@@ -83,20 +73,18 @@ function RecipeDetail() {// ★ 料理名（英語 → 日本語）翻訳辞書
       const res = await fetch(url);
       const data = await res.json();
 
-      // 返ってくる配列から翻訳結果だけを取り出し
       const jaText = data[0].map((part) => part[0]).join("");
 
       setTranslatedInstructions(jaText);
       setShowJapanese(true);
     } catch (err) {
       console.error(err);
-      setError("翻訳に失敗しました。時間をおいて再度お試しください。");
+      setError("翻訳に失敗しました。");
     } finally {
       setIsTranslating(false);
     }
   };
 
-  // ★ 英語に戻す
   const handleShowEnglish = () => {
     setShowJapanese(false);
   };
@@ -110,7 +98,7 @@ function RecipeDetail() {// ★ 料理名（英語 → 日本語）翻訳辞書
       ? translatedInstructions
       : recipe.strInstructions;
 
-  // 材料リストを組み立て（今まで使っていたやり方でOK）
+  // ★ 材料リスト作成
   const ingredients = [];
   for (let i = 1; i <= 20; i++) {
     const ing = recipe[`strIngredient${i}`];
@@ -124,9 +112,8 @@ function RecipeDetail() {// ★ 料理名（英語 → 日本語）翻訳辞書
     <div className="app">
       <button onClick={() => navigate(-1)}>← 戻る</button>
 
+      {/* ★ タイトルだけ日本語化 */}
       <h1>{mealNameJP[recipe.strMeal] || recipe.strMeal}</h1>
-
-
 
       <img
         src={recipe.strMealThumb}
@@ -144,7 +131,6 @@ function RecipeDetail() {// ★ 料理名（英語 → 日本語）翻訳辞書
 
       <h2>作り方</h2>
 
-      {/* ★ 翻訳ボタン（デザインほぼそのまま） */}
       <div className="translate-actions">
         <button
           className="translate-button"
@@ -182,4 +168,3 @@ function RecipeDetail() {// ★ 料理名（英語 → 日本語）翻訳辞書
 }
 
 export default RecipeDetail;
-
