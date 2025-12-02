@@ -43,4 +43,7 @@ a[href*="ezy.com"] {
   opacity: 0.7;
   cursor: default;
 }
+.recipe-card p {
+  display: none;
+}
 
