@@ -1,8 +1,24 @@
-// src/RecipeDetail.jsx
+//// ★ 料理名（英語 → 日本語）翻訳辞書
+const mealNameJP = {
+  "Mediterranean Pasta Salad": "地中海風パスタサラダ",
+  "Beef and Mustard Pie": "ビーフとマスタードのパイ",
+  "Chicken Handi": "チキンハンディ",
+  "Tuna Nicoise": "ツナニソワーズ",
+  // ここに追加していくことも可能！👍
+};
+ src/RecipeDetail.jsx
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-function RecipeDetail() {
+function RecipeDetail() {// ★ 料理名（英語 → 日本語）翻訳辞書
+  const mealNameJP = {
+    "Mediterranean Pasta Salad": "地中海風パスタサラダ",
+    "Beef and Mustard Pie": "ビーフとマスタードのパイ",
+    "Chicken Handi": "チキンハンディ",
+    "Tuna Nicoise": "ツナニソワーズ",
+    // 他の料理もここに追加できます
+  };
+  
   const { id } = useParams();
   const navigate = useNavigate();
   const [recipe, setRecipe] = useState(null);
@@ -108,7 +124,9 @@ function RecipeDetail() {
     <div className="app">
       <button onClick={() => navigate(-1)}>← 戻る</button>
 
-      <h1>{recipe.strMeal}</h1>
+      <h1>{mealNameJP[recipe.strMeal] || recipe.strMeal}</h1>
+
+
 
       <img
         src={recipe.strMealThumb}
