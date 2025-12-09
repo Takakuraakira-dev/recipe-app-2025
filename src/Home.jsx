@@ -28,7 +28,12 @@ function Home() {
       <button onClick={fetchShops}>検索</button>
       <div className="list">
   {shops.map((s) => (
-    <div key={s.id} className="card">
+    
+    import { Link } from "react-router-dom";
+
+<div className="list">
+  {shops.map((s) => (
+    <Link key={s.id} to={`/shop/${s.id}`} className="card">
       <img src={s.image} alt={s.name} />
 
       <div className="badges">
@@ -39,9 +44,10 @@ function Home() {
       <h3>{s.name}</h3>
       <p>{s.budget}</p>
       <p className="description">{s.description}</p>
-    </div>
+    </Link>
   ))}
 </div>
+
 
       
         
