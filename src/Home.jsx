@@ -6,13 +6,28 @@ function Home() {
   const [shops, setShops] = useState([]);
   const [keyword, setKeyword] = useState("");
 
-  // リアルタイム検索
   useEffect(() => {
     async function search() {
+      // 🔥 キーワードが空なら「おすすめ」だけ表示
+      if (keyword.trim() === "") {
+        const res = await fetch(`/api/search`);
+        const data = await res.json();
+  
+        // おすすめ3店だけ取り出す
+        const recommended = data.slice(0, 3);
+        setShops(recommended);
+        return;
+      }
+  
+      // 🔥 キーワードがあるなら検索
       const res = await fetch(`/api/search?keyword=${keyword}`);
       const data = await res.json();
       setShops(data);
     }
+  
+    search();
+  }, [keyword]);
+  
 
     search();
   }, [keyword]); // ← keyword が変わるたびに実行
