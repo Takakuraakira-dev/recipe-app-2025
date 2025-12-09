@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -5,15 +6,16 @@ function Home() {
   const [shops, setShops] = useState([]);
   const [keyword, setKeyword] = useState("");
 
-  const fetchShops = async () => {
-    const res = await fetch(`/api/search?keyword=${keyword}`);
-    const data = await res.json();
-    setShops(data);
-  };
-
+  // リアルタイム検索
   useEffect(() => {
-    fetchShops();
-  }, []);
+    async function search() {
+      const res = await fetch(`/api/search?keyword=${keyword}`);
+      const data = await res.json();
+      setShops(data);
+    }
+
+    search();
+  }, [keyword]); // ← keyword が変わるたびに実行
 
   return (
     <div className="app">
@@ -25,8 +27,6 @@ function Home() {
         value={keyword}
         onChange={(e) => setKeyword(e.target.value)}
       />
-
-      <button onClick={fetchShops}>検索</button>
 
       <div className="list">
         {shops.map((s) => (
@@ -49,4 +49,3 @@ function Home() {
 }
 
 export default Home;
-
