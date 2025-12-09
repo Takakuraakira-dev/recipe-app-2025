@@ -16,7 +16,7 @@ function Home() {
 
   return (
     <div className="app">
-      <h1>🍽 飲食店検索（ホットペッパー風）</h1>
+      <h1>🍽 飲食店検索</h1>
 
       <input
         type="text"
