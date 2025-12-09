@@ -1,83 +1,83 @@
-body {
-  font-family: "Noto Sans JP", sans-serif;
-  background-color: #fafafa;
-  color: #333;
-  text-align: center;
-}
-
+/* 全体 */
 .app {
+  max-width: 800px;
+  margin: auto;
   padding: 20px;
+  font-family: "sans-serif";
 }
 
-.search-bar {
-  margin-bottom: 20px;
-}
-
-.search-bar input {
+/* 検索バー */
+input {
   padding: 10px;
-  width: 60%;
-  font-size: 16px;
+  width: 70%;
   border: 1px solid #ccc;
   border-radius: 6px;
+  margin-right: 10px;
 }
 
-.search-bar button {
+button {
   padding: 10px 16px;
-  margin-left: 8px;
-  background-color: #ff7043;
-  color: white;
   border: none;
+  background: #ff6a3d;
+  color: white;
+  font-weight: bold;
   border-radius: 6px;
   cursor: pointer;
 }
 
-.recipe-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+/* 店舗リスト（グリッド） */
+.list {
   margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
 }
 
-.recipe-card {
+/* カード */
+.card {
   background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.2s;
 }
 
-.recipe-card:hover {
+.card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
-.recipe-card img {
+/* 画像 */
+.card img {
   width: 100%;
-  border-radius: 10px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-.app h1 {
-  font-size: 32px;
-  color: #5c3d99;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+/* 店名 */
+.card h3 {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #333;
 }
 
-.app h1::before {
-  content: "🔍";
+/* バッジ（ジャンル・エリア） */
+.badges {
+  margin: 10px 0;
 }
 
-.detail-container img {
-  width: 90%;
-  border-radius: 10px;
-  margin: 20px 0;
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #eee;
+  border-radius: 12px;
+  margin-right: 6px;
+  font-size: 12px;
 }
 
-/* ブラウザの英語自動要約を消す（あなたの要望の白い部分） */
-article, p {
-  --overflow: hidden !important;
+/* 説明文 */
+.description {
+  margin-top: 10px;
+  color: #555;
 }
 

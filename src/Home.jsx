@@ -26,18 +26,25 @@ function Home() {
       />
 
       <button onClick={fetchShops}>検索</button>
-
       <div className="list">
-        {shops.map((s) => (
-          <div key={s.id} className="card">
-            <img src={s.image} alt={s.name} />
-            <h3>{s.name}</h3>
-            <p>{s.genre} / {s.area}</p>
-            <p>{s.budget}</p>
-            <p>{s.description}</p>
-          </div>
-        ))}
+  {shops.map((s) => (
+    <div key={s.id} className="card">
+      <img src={s.image} alt={s.name} />
+
+      <div className="badges">
+        <span className="badge">{s.genre}</span>
+        <span className="badge">{s.area}</span>
       </div>
+
+      <h3>{s.name}</h3>
+      <p>{s.budget}</p>
+      <p className="description">{s.description}</p>
+    </div>
+  ))}
+</div>
+
+      
+        
     </div>
   );
 }
