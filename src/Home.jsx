@@ -8,13 +8,12 @@ function Home() {
 
   useEffect(() => {
     async function search() {
-      // 🔥 キーワードが空なら「おすすめ」だけ表示
+      // 🔥 キーワードが空ならランダムおすすめ3店
       if (keyword.trim() === "") {
         const res = await fetch(`/api/search`);
         const data = await res.json();
   
-        // おすすめ3店だけ取り出す
-        const recommended = data.slice(0, 3);
+        const recommended = getRandomItems(data, 3);
         setShops(recommended);
         return;
       }
@@ -28,9 +27,9 @@ function Home() {
     search();
   }, [keyword]);
   
-
-    search();
-  }, [keyword]); // ← keyword が変わるたびに実行
+  
+  
+      
 
   return (
     <div className="app">
