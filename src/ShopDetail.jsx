@@ -20,17 +20,19 @@ function ShopDetail() {
   return (
     <div className="app">
       <img
-  src={shop.image}
-  alt={shop.name}
-  style={{
-    width: "100%",
-    height: "260px",
-    objectFit: "cover",
-    borderRadius: "12px",
-    marginBottom: "20px",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
-  }}
-/>
+        src={shop.image}
+        alt={shop.name}
+        style={{
+          width: "80%",
+          maxWidth: "500px",
+          height: "260px",
+          objectFit: "cover",
+          borderRadius: "12px",
+          margin: "0 auto 20px",
+          display: "block",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
+        }}
+      />
 
       <h1>{shop.name}</h1>
       <p>{shop.genre} / {shop.area}</p>
