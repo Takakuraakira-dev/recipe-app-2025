@@ -23,7 +23,7 @@ function ShopDetail() {
         src={shop.image}
         alt={shop.name}
         style={{
-          width: "80%",
+          width: "50%",
           maxWidth: "500px",
           height: "260px",
           objectFit: "cover",
