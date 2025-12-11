@@ -4,7 +4,7 @@ export const restaurants = [
       name: "炭火焼肉 たかくら",
       genre: "焼肉",
       area: "渋谷",
-      image: "https://source.unsplash.com/600x400/?yakiniku",
+      image:  "/images/yakiniku-takakura.png",
       budget: "3000〜5000円",
       description: "厳選された国産牛を炭火で焼き上げる人気店。",
     },
