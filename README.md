@@ -1,79 +1,37 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# Recipe App（レシピ検索アプリ）
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## アプリ概要
+Reactを用いて作成したレシピ検索アプリです。  
+APIからレシピ情報を取得し、検索・一覧表示・詳細表示ができる  
+SPAとして実装しています。
 
-## React Compiler
+## URL
+https://recipe-app-2025.vercel.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 使用技術
+- HTML
+- CSS
+- JavaScript（ES6）
+- React（Hooks）
+- Vite
+- Git / GitHub
+- Vercel（デプロイ）
 
-## Expanding the ESLint configuration
+## 主な機能
+- キーワード検索
+- API通信によるデータ取得
+- レシピ一覧表示
+- レシピ詳細表示
+- コンポーネント分割
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 工夫した点
+- コンポーネントを役割ごとに分割し、再利用性を意識しました
+- useState / useEffect を使用して状態管理を行っています
+- UIがシンプルで使いやすくなるよう構成を整理しました
 
-🌟 Recipe Finder（レシピ検索アプリ）
-
-食材名や料理名を入力すると、
-そのキーワードに合ったレシピを検索できる React アプリです。
-
-転職用ポートフォリオとして作成しました。
-
-📸 デモ画像
-
-✨ 主な機能
-
-🔍 レシピ検索（食材・料理名から検索）
-
-🖼️ レシピ画像の表示
-
-📄 材料・作り方の簡易表示
-
-🎨 レスポンシブデザイン対応
-
-⚡ Vite + React で高速動作
-
-🛠 使用技術（Tech Stack）
-分類	内容
-フロントエンド	React / Vite
-言語	JavaScript
-UI	CSS / Flexbox
-パッケージ管理	npm
-バージョン管理	Git / GitHub
-📦 セットアップ方法（ローカル実行）
-
-# リポジトリをクローン
-git clone https://github.com/Takakuraakira-dev/recipe-app-2025.git
-
-# フォルダへ移動
-cd recipe-app-2025
-
-# パッケージをインストール
-npm install
-
-# 開発サーバーを起動
-npm run dev
-
-🚀 今後追加したい機能
-
-⭐ お気に入り保存機能
-
-⭐ レシピの詳細ページ
-
-⭐ カロリー表示
-
-⭐ デザイン改善（カードレイアウトなど）
-
-⭐ ダークモード
-
-👤 作者
-
-Takakuraakira-dev
-Front-end Developer (志望)
-React / JavaScript を中心に学習・開発中です。
-## 🔗 公開URL
-https://takakuraakira-dev.github.io/recipe-app-2025/
-- update for deploy test
+## 学んだこと・苦労した点
+- 非同期処理やAPIデータの扱い方を理解しました
+- エラー発生時にconsole.logや公式ドキュメントを活用して原因を切り分けました
+- Gitを用いた基本的な開発フローを経験しました
