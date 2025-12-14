@@ -1,5 +1,7 @@
 # 飲食店検索アプリ（Restaurant Search App）
 
+https://recipe-app-2025.vercel.app/
+
 ## アプリ概要
 Reactを用いて作成した飲食店検索アプリです。  
 自作のAPI（/api/search）を通じて店舗データを取得し、  
